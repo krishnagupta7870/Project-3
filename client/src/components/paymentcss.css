@@ -1,0 +1,119 @@
+.payment-status-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fffefe;
+    text-align: center;
+  }
+  
+  .loading {
+    font-size: 1.5rem;
+    color: #555;
+  }
+  
+  .success-message, .failure-message {
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .success-message svg, .failure-message svg {
+    margin-bottom: 15px;
+  }
+  
+  .success-message h2, .failure-message h2 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .success-message p, .failure-message p {
+    margin: 10px 0;
+    color: #666;
+  }
+  
+  .navigate-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .navigate-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .failure-message .navigate-button {
+    background-color: #FF5722;
+  }
+  
+  .failure-message .navigate-button:hover {
+    background-color: #E64A19;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+  }
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  
+  .spinner::before,
+  .spinner::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid #333;
+    opacity: 0.6;
+    animation: spinner 1s linear infinite;
+  }
+  
+  .spinner::after {
+    border-color: transparent;
+    border-top-color: #333;
+    animation-delay: -0.5s;
+  }
+  
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

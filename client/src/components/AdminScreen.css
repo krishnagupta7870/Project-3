@@ -1,0 +1,977 @@
+/* Global Variables */
+:root {
+  --primary-color: #e82574;
+  --text-dark: #0c0a09;
+  --white: #ffffff;
+  --bg-light: #f9f9f9;
+}
+
+/* Navbar Header */
+.navbar-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+}
+
+/* Admin Page */
+.admin-page {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12vh;
+  padding: 0;
+  width: 192vh;
+  min-height: 90vh;
+}
+
+.admin-page h1 {
+  color: blue;
+  font-size: 36px;
+  font-weight: lighter;
+  margin-bottom: 5px;
+}
+
+/* Top Navigation Bar */
+.admin-navbar {
+  display: flex;
+  justify-content: flex-start;
+  background-color: var(--white);
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.admin-navbar button {
+  margin: 0 15px;
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-weight: bold;
+}
+
+.admin-navbar button:hover {
+  color: var(--primary-color);
+}
+
+.admin-navbar button.active {
+  border-bottom: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* Content Area */
+.admin-content {
+  flex: 1;
+  padding: 20px;
+  background-color: var(--bg-light);
+}
+
+/* Table container */
+.table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+/* Tables (Bookings, Rooms, Users, Payments) */
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.bookings-table th,
+.bookings-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.bookings-table th {
+  background-color: #f2f2f2;
+}
+
+/* Status badges */
+.status {
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.status.cancelled {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.status.booked {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+/************ADD ROOMS****************//************ADD ROOMS****************//************ADD ROOMS****************//************ADD ROOMS****************/
+/************ADD ROOMS****************//************ADD ROOMS****************//************ADD ROOMS****************/
+
+.add-room-container {
+  width: 183vh;
+  height: auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin: 0px -3px;
+}
+.owner-view.add-room-container {
+  width: 1080px;
+  height: auto;
+  padding: 30px 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin-top: -10vh;
+  padding-top: 16vh;
+  margin-left: -40px;
+  z-index: 1000;
+}
+.owner-view.add-room-container h1 {
+  display: none;
+}
+
+.add-room-container h1{
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+.owner-view.add-room-container h1{
+  margin-top: -10px;
+  margin-bottom:30px;
+}
+.add-room-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.form-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+}
+
+.left-column,
+.right-column {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+/* Input field styling */
+.input-group {
+  display: flex;
+  align-items: right;
+  margin-left: -65px;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+
+label {
+  width: 150px; 
+  text-align: right; 
+  height: 30px;
+}
+.input-group label {
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+
+.input-group input,
+.input-group textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-left: -30px;
+  width: 70%;
+}
+.owner-view .input-group input,
+.owner-view .input-group textarea {
+  padding: 10px;
+  border: 2px solid #aaa;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-left:-40px;
+  width: 360px;
+  margin-top: 0px;
+}
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #007bff;   /* Change border color to blue */
+  outline: none;         /* Remove default focus outline (optional) */
+  box-shadow: 0px 4px 8px rgba(0, 123, 255, 0.2);/* Optional glow */
+}
+
+
+textarea {
+  resize: none;
+  min-height: 80px;
+  overflow-y: auto;
+}
+
+/* Radio button styling */
+.input-group-roomtype{
+  display: flex;
+  white-space: nowrap;
+  justify-content: left;
+  font-weight: bold;
+  margin-left: -64px;
+}
+.radio-group {
+  display: flex;
+  width: 150px;
+  margin-top: -4px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  padding: 5px 12px;
+  background-color: #ffffff;
+  border: 2px solid transparent;  /* Ensure there's a border */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.owner-view .radio-group label {
+  display: flex;
+  align-items: center;
+  padding: 5px 12px;
+  background-color: #ffffff;
+  border: 2px solid transparent;  /* Ensure there's a border */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: -10px;
+  margin-top: 0px;
+}
+
+.radio-group label:hover {
+  background: none;
+  color: black;
+  border-color: var(--primary-color);  /* Now this will work */
+  box-shadow: 0px 4px 8px rgba(0, 86, 179, 0.2);
+  transform: scale(1.03);
+}
+.radio-group input[type="radio"]:focus + label {
+  border-color: rgb(249, 21, 21);
+  box-shadow: 0px 0px 8px rgba(0, 0, 255, 0.5);
+}
+.radio-group label.active{
+  background-color:  #cb0353a2;
+  color: white;
+  box-shadow: 0px 4px 10px rgba(0, 86, 179, 0.2);
+}
+.radio-group label:active{
+  transform: scale(0.97);
+}
+.fromHighway{
+  display: flex;
+  align-items: right;
+}
+.fromHighway input{
+  width: 70px; 
+}
+.owner-view .fromHighway{
+  display: flex;
+  align-items: right;
+}
+.owner-view .fromHighway input{
+  width: 70px; 
+}
+/* Price input styling */
+.price-group {
+  display: flex;
+  align-items: right;
+  margin-left: -10.37vh;
+}
+.price-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding: 5px;
+  background: #fff;
+  width: fit-content;
+  margin-left: -5px;
+}
+
+.currency {
+  position: absolute;
+  left: -12px; 
+  font-weight: bold;
+  color: #555;
+}
+.owner-view .currency {
+  position: absolute;
+  left: -22px; 
+  font-weight: bold;
+  color: #555;
+  margin-top: -10px;
+}
+.price-input-container input {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding-left: 38px; /* Space for Rs. */
+  padding-right: 55px; /* Space for "per month" */
+  width: 70px;
+  font-size: 16px;
+  
+}
+.owner-view .price-input-container input {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding-left: 38px; /* Space for Rs. */
+  padding-right: 55px; /* Space for "per month" */
+  width: 70px;
+  font-size: 16px;
+  margin-top: -10px;
+}
+
+.price-type {
+  position: absolute;
+  left: 70px;
+  font-size: 14px;
+  color: rgb(88, 88, 88);
+  pointer-events: none; /* Prevent clicking */
+}
+.owner-view .price-type {
+  position: absolute;
+  left: 60px;
+  font-size: 14px;
+  color: rgb(88, 88, 88);
+  pointer-events: none; /* Prevent clicking */
+  margin-top: -10px;
+}
+.price-input-container input::-webkit-outer-spin-button,
+.price-input-container input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+/* Features styling */
+.input-group-features{
+  display: flex;
+  width: 100%;
+}
+
+.input-group button{
+  padding: 5px 10px;
+  background: #007bffa6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+  margin-left: 10px;
+  margin-bottom: 14px;
+}
+.features-list {
+  /* width: 300px; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 5px;
+  align-items: right;
+  margin-left: 25vh;
+  margin-right: 20px;
+}
+
+.input-group .feature-item {
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 17px 15px 10px 15px;
+  border-radius: 3px;
+  font-size: 16px;
+  /* padding-top: 15px; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+.input-group .remove-feature{
+  position: absolute;
+  padding: 1px 3px 1px 3px;
+  background:none;
+  color: rgb(255, 0, 0);
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  margin: -17px 0px 0px -1px ;
+}
+.input-group .remove-feature:hover{
+  background:rgba(255, 0, 0, 0.522);
+  color: rgb(255, 255, 255);
+}
+.owner-view .input-group .remove-feature{
+  position: absolute;
+  padding: 1px 3px 1px 3px;
+  background:none;
+  color: rgb(255, 0, 0);
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  margin: -17px 0px 0px -1px ;
+}
+.owner-view .input-group .remove-feature:hover{
+  background:rgba(255, 0, 0, 0.522);
+  color: rgb(255, 255, 255);
+}
+.location-buttons{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 65px;
+}
+.owner-view .location-buttons{
+  margin-left: -30px;
+}
+.owner-view .manual-coords input{
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  width: 140px;
+  margin-left: -42px;
+}
+.manual-coords{
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-left: 285px;
+}
+.owner-view .manual-coords{
+  margin-left: 285px;
+}
+/* Image upload section */
+.image-upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100vh;
+}
+
+.image-preview-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  justify-content: center;
+}
+
+
+.image-wrapper {
+  
+  position: relative;
+  width: 160px;
+  height: 120px;
+}
+
+.image-preview {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+.image-preview-container .delete-image {
+  position: absolute;
+  background: red;
+  color: white;
+  border: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  font-size: 14px;
+  align-items: center;
+  justify-content: center;
+  margin: -120px 0px 0px 134px;
+}
+
+.image-wrapper:hover .delete-image {
+  display: flex;
+}
+.owner-view .image-preview-container .delete-image {
+  position: absolute;
+  background: red;
+  color: white;
+  border: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  font-size: 14px;
+  align-items: center;
+  justify-content: center;
+  margin: -140px 0px 0px 134px;
+}
+
+.owner-view .image-wrapper:hover .delete-image {
+  display: flex;
+}
+
+
+/* Submit button styling */
+.submit-group {
+  text-align: center;
+}
+
+.add-room-button {
+  margin-top: 20px;
+  /* display: flex; */
+  align-items: center;
+  background-color: var(--primary-color);  
+  color: white;
+  border: 1px solid #eaeaec00;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-left: 30px;
+  transition: transform 0.3s ease;
+}
+
+.add-room-button:hover {
+  background-color:var(--primary-color-dark);
+  transform: scale(1.2);
+}
+.add-room-button:active{
+  transform: scale(0.97);
+}
+/* Popup styling */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border-radius: 5px;
+}
+
+.popup button {
+  margin-top: 10px;
+  background: #007bff;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup button:hover {
+  background: #0056b3;
+}
+
+
+
+
+
+
+
+/********************************KYC VERIFICATION******************************/
+
+/* KYC Request Table Styles */
+/* KYC Request Table Styles */
+table.kyc-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table.kyc-table th,
+table.kyc-table td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  text-align: center;
+}
+
+table.kyc-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+table.kyc-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+table.kyc-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.view-details-button {
+  background: none;
+  border: none;
+  color: #3498db;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.9em;
+}
+
+/* New CSS for KYC status badges */
+.kyc-status-approved {
+  background-color: #2ecc71;  /* Green */
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.kyc-status-rejected {
+  background-color: #e74c3c;  /* Red */
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.kyc-status-pending {
+  background-color: #f39c12;  /* Orange */
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* Popup Overlay Styles */
+/* Enhanced KYC Popup Styling */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-overlay-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.popup-content {
+  background-color: white;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 12px;
+  padding: 30px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+}
+
+.popup-content h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.popup-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.2s;
+  padding: 5px 10px;
+  border-radius: 50%;
+}
+
+.popup-close:hover {
+  color: #333;
+  background-color: #f0f0f0;
+}
+
+.kyc-details {
+  margin-top: 20px;
+  padding: 25px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.document-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.inline-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+}
+
+.inline-group:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.inline-group label {
+  width: 150px;
+  flex-shrink: 0;
+  font-weight: 600;
+  color: #34495e;
+  font-size: 16px;
+  margin-right: 20px;
+  text-align: left;
+}
+
+.inline-groupss {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+}
+
+.inline-groupss:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.inline-groupss label {
+  width: 150px;
+  flex-shrink: 0;
+  font-weight: 600;
+  color: #34495e;
+  font-size: 16px;
+  margin-right: 20px;
+  text-align: left;
+}
+
+.inline-groupss p {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 16px;
+  font-weight: 500;
+  flex-grow: 1;
+  text-align: left;
+}
+
+/* Profile Photo */
+.photo-upload-square-admin-profile {
+  width: 160px;
+  height: 200px;
+  border: 2px solid #e1e5e8;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: #f8f9fa;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0;
+}
+
+.photo-upload-square-admin-profile:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border-color: #3498db;
+  transform: translateY(-3px);
+}
+
+.photo-upload-square-admin-profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Document Images */
+.photo-upload-square-adminside {
+  width: 250px;
+  height: 160px;
+  border: 2px solid #e1e5e8;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0;
+}
+
+.photo-upload-square-adminside:hover {
+  border-color: #3498db;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+}
+
+.photo-upload-square-adminside img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-upload-square-adminside span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #7f8c8d;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Action Buttons */
+.kyc-popup-actions {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.approve-button, .reject-button {
+  padding: 14px 35px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+  min-width: 160px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.approve-button {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.approve-button:hover {
+  background-color: #27ae60;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.reject-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.reject-button:hover {
+  background-color: #c0392b;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Image preview modal */
+.image-preview-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-preview-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.image-preview-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-preview-display img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+/* KYC Status Badges */
+.kyc-status-approved {
+  background-color: #2ecc71;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.kyc-status-rejected {
+  background-color: #e74c3c;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.kyc-status-pending {
+  background-color: #f39c12;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/*admin-chat-box */
+.admin-chat-box{
+  width: 900px;      
+  height: 500px;   
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #fff;
+  justify-self: center;
+}
