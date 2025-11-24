@@ -186,7 +186,7 @@ const Footer = () => {
       
       <div className="footer-bottom">
         <p>&copy; {currentYear} AVAS Room Rental System. All rights reserved.</p>
-        <p>Designed and Developed by Krishna Kumar Gupta, Karan Gupta, Mahendra Saud, Priti Paudel - Pokhara University</p>
+        <p>Designed and Developed by Krishna Kumar Gupta - Pokhara University</p>
       </div>
     </footer>
   );
