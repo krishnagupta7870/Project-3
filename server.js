@@ -27,7 +27,7 @@ const reviewRoutes = require("./routes/reviewRoutes")
 // Middleware
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://avas-frontend.onrender.com"],
+    origin: ["http://localhost:3000", "https://project-3-0kog.onrender.com"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
